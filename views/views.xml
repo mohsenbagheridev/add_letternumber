@@ -1,0 +1,90 @@
+<odoo>
+  <data>
+
+          <record id="documents_fields_inherit" model="ir.ui.view">
+            <field name="name">documents.fields.inherit</field>
+            <field name="model">documents.document</field>
+            <field name="inherit_id" ref="documents.documents_view_list"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="letter_number" string="Letter" required="True"/>
+                    <field name="letter_date" string="DateN" required="True"/>
+                    <field name="ln" string="ln" required="True"/>
+                    <field name="title" string="Title" required="True"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="documents_kanban_inherit" model="ir.ui.view">
+            <field name="name">documents.fields.kanban</field>
+            <field name="model">documents.document</field>
+            <field name="inherit_id" ref="documents.document_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after" >
+                    <field name="letter_number" string="Letter" required="True"/>
+                    <field name="letter_date" string="DateN" required="True"/>
+                    <field name="ln" string="ln" required="True"/>
+
+                </xpath>
+
+            </field>
+        </record>
+        
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="homa_letternumber.list">
+      <field name="name">homa_letternumber list</field>
+      <field name="model">homa_letternumber.homa_letternumber</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="homa_letternumber.action_window">
+      <field name="name">homa_letternumber window</field>
+      <field name="res_model">homa_letternumber.homa_letternumber</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="homa_letternumber.action_server">
+      <field name="name">homa_letternumber server</field>
+      <field name="model_id" ref="model_homa_letternumber_homa_letternumber"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="homa_letternumber" id="homa_letternumber.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="homa_letternumber.menu_1" parent="homa_letternumber.menu_root"/>
+    <menuitem name="Menu 2" id="homa_letternumber.menu_2" parent="homa_letternumber.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="homa_letternumber.menu_1_list" parent="homa_letternumber.menu_1"
+              action="homa_letternumber.action_window"/>
+    <menuitem name="Server to list" id="homa_letternumber" parent="homa_letternumber.menu_2"
+              action="homa_letternumber.action_server"/>
+-->
+  </data>
+</odoo>

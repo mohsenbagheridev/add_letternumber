@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+
+<odoo>
+    <data>
+      <template id="assets_backend_02" name="documents assets backend" inherit_id="web.assets_backend">
+      <xpath expr = "." Position = "inside">
+            <script type="text/javascript" src="/homa_letternumber/static/src/js/documents_custom.js"/>
+      </xpath>
+      </template>
+    </data>
+</odoo>
+
+    </data>
+</odoo>
